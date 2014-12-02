@@ -768,7 +768,8 @@
             overlay.removeClass("pbLoading");
             pbLoader.removeAttr('style');
         });
-        overlay.addClass('hide');
+        //overlay.addClass('hide');
+		wrapper.addClass('hide');//Hack for Drupal with image tokens
 
         image.add(video).removeAttr('style').removeClass('zoomable'); // while transitioning an image, do not apply the 'zoomable' class
 
@@ -803,7 +804,8 @@
             // filthy hack for the transitionend event, but cannot work without it:
             setTimeout(function(){
                 image.add(video).removeAttr('style').removeClass('prepare');
-                overlay.removeClass('hide next prev');
+                //overlay.removeClass('hide next prev');
+				wrapper.removeClass('hide next prev');//Hack for Drupal with image tokens
                 setTimeout(function(){
                     image.add(video).on(transitionend, showDone);
                     if(isOldIE) showDone(); // IE9 and below don't support transitionEnd...
